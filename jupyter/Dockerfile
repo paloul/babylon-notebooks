@@ -1,4 +1,4 @@
-FROM public.ecr.aws/j1r0q0g6/notebooks/notebook-servers/base:master-6c41e72b
+FROM babylon/notebook-base:1
 
 USER root
 

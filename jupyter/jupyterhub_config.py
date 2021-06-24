@@ -1,0 +1,10 @@
+c.JupyterHub.authenticator_class = "generic"
+c.OAuthenticator.oauth_callback_url = "https://[your-host]/hub/oauth_callback"
+c.OAuthenticator.client_id = "r8v72ivs9unbno3tgg3t0c2ki"
+c.OAuthenticator.client_secret = "m7nhrqvqqhlapip72584l07cq137qmac4mu61o9for24evlihf8"
+
+c.GenericOAuthenticator.login_service = "AWSCognito"
+c.GenericOAuthenticator.username_key = "login"
+c.GenericOAuthenticator.authorize_url = "https://your-AWSCognito-domain/oauth2/authorize"
+c.GenericOAuthenticator.token_url = "https://your-AWSCognito-domain/oauth2/token"
+c.GenericOAuthenticator.userdata_url = "https://your-AWSCognito-domain/oauth2/userInfo"
