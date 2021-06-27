@@ -1,4 +1,4 @@
-FROM babylon/jupyter-base:1
+FROM ai.beyond/babylon/notebooks/jupyter-base:latest
 
 # install - requirements.txt
 COPY --chown=jovyan:users requirements.txt /tmp/requirements.txt

@@ -1,4 +1,4 @@
-FROM babylon/notebook-base:1
+FROM ai.beyond/babylon/notebooks/base:latest
 
 USER root
 
