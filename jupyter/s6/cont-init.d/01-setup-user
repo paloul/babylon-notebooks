@@ -2,7 +2,7 @@
 
 echo 'Creating New Dynamic NBUser...'
 
-if id "$1" &>/dev/null; then
+if id "${NAMESPACE}" &>/dev/null; then
     echo "User ${NAMESPACE} already is setup"
 else
     useradd -M -s /bin/bash -N -u "$((${NB_UID} + 1))" "${NAMESPACE}"
