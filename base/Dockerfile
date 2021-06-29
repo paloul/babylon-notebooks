@@ -10,7 +10,6 @@ ENV SHELL /bin/bash
 # BL environment variables
 ENV NAMESPACE kubeflow
 ENV NOTEBOOK_NAME kubeflow-1
-ENV OAUTH_CALLBACK_URL https://kubeflow.babylon2.beyond.ai
 
 # args - software versions
 ARG KUBECTL_ARCH="amd64"
