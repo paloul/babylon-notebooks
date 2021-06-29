@@ -1,4 +1,3 @@
 jupyterlab==3.0.16
 notebook==6.4.0
 ipykernel==5.5.5
-oauthenticator==0.13.0
