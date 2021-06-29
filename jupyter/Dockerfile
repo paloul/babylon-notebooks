@@ -65,12 +65,9 @@ RUN python3 -m pip install -r /tmp/requirements.txt --quiet --no-cache-dir \
 # s6 - copy scripts
 COPY --chown=jovyan:users s6/ /etc
 
-# s6 - 01-copy-tmp-home
-USER root
-RUN mkdir -p /tmp_home \
- && cp -r ${HOME} /tmp_home \
- && chown -R ${NB_USER}:users /tmp_home
-USER ${NB_UID}
+# Give permissions for read/write/execute to all in group
+RUN chmod -R g+rwx ${CONDA_DIR} \
+   && chmod -R g+rwx ${HOME}
 
 EXPOSE 8888
 
