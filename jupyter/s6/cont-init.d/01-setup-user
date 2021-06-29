@@ -5,14 +5,14 @@ echo 'Creating New Dynamic NBUser...'
 useradd -M -s /bin/bash -N -u "${NB_UID}" "${NB_USER}"
 usermod -aG sudo "${NB_USER}"
 mkdir -p "/home/${NB_USER}"
-cp -r "/home/jovyan/.conda" "/home/${NB_USER}"
-cp -r "/home/jovyan/.jupyter" "/home/${NB_USER}"
-chown -R "${NB_USER}:users" "/home/${NB_USER}"
-chown -R "${NB_USER}:users" /usr/local/bin
-# chown -R "${NB_USER}:users" /etc/s6
 
 echo ". /opt/conda/etc/profile.d/conda.sh" >> "/home/${NB_USER}/.bashrc"
 echo "conda activate base" >> "/home/${NB_USER}/.bashrc"
+cp -r "/home/jovyan/.conda" "/home/${NB_USER}"
+cp -r "/home/jovyan/.jupyter" "/home/${NB_USER}"
+
+chown -R "${NB_USER}:users" "/home/${NB_USER}"
+# chown -R "${NB_USER}:users" /etc/s6
 
 chown -R ${NB_USER}:users "/home/jovyan"
 
