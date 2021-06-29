@@ -66,10 +66,12 @@ RUN python3 -m pip install -r /tmp/requirements.txt --quiet --no-cache-dir \
 COPY --chown=jovyan:users s6/ /etc
 
 # Give permissions for read/write/execute to all in group
+USER root
 RUN chmod -R g+rwx ${CONDA_DIR} \
    && chown -R :users /usr/local \
    && chmod -R g+rwx /usr/local \
    && chmod -R g+rwx ${HOME}
+USER ${NB_UID}
 
 EXPOSE 8888
 
