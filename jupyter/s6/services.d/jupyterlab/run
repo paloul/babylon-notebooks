@@ -1,10 +1,10 @@
 #!/usr/bin/with-contenv bash
 
 export SHELL='/bin/bash'
-cd "/home/${NAMESPACE}"
-exec s6-setuidgid ${NAMESPACE} \
+cd "/home/${NB_USER}"
+exec s6-setuidgid ${NB_USER} \
   /opt/conda/bin/jupyter lab \
-  --notebook-dir="/home/${NAMESPACE}" \
+  --notebook-dir="/home/${NB_USER}" \
   --ip=0.0.0.0 \
   --no-browser \
   --allow-root \

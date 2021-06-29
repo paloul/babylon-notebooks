@@ -2,24 +2,18 @@
 
 echo 'Creating New Dynamic NBUser...'
 
-if id "${NAMESPACE}" &>/dev/null; then
-    echo "User ${NAMESPACE} already is setup"
-else
-    useradd -M -s /bin/bash -N -u "$((${NB_UID} + 1))" "${NAMESPACE}"
-    usermod -aG sudo "${NAMESPACE}"
-    mkdir -p "/home/${NAMESPACE}"
-    cp -r "/home/jovyan/.conda" "/home/${NAMESPACE}"
-    cp -r "/home/jovyan/.jupyter" "/home/${NAMESPACE}"
-    #chown -R "${NAMESPACE}:users" "/home/${NAMESPACE}"
-    chown "${NAMESPACE}:users" "/home/${NAMESPACE}"
-    chown -R "${NAMESPACE}:users" /usr/local/bin
-    # chown -R "${NAMESPACE}:users" /etc/s6
+useradd -M -s /bin/bash -N -u "${NB_UID}" "${NB_USER}"
+usermod -aG sudo "${NB_USER}"
+mkdir -p "/home/${NB_USER}"
+cp -r "/home/jovyan/.conda" "/home/${NB_USER}"
+cp -r "/home/jovyan/.jupyter" "/home/${NB_USER}"
+chown -R "${NB_USER}:users" "/home/${NB_USER}"
+chown -R "${NB_USER}:users" /usr/local/bin
+# chown -R "${NB_USER}:users" /etc/s6
 
-    echo ". /opt/conda/etc/profile.d/conda.sh" >> "/home/${NAMESPACE}/.bashrc"
-    echo "conda activate base" >> "/home/${NAMESPACE}/.bashrc"
+echo ". /opt/conda/etc/profile.d/conda.sh" >> "/home/${NB_USER}/.bashrc"
+echo "conda activate base" >> "/home/${NB_USER}/.bashrc"
 
-    # chown -R ${NAMESPACE}:users ${CONDA_DIR}
-    chown -R ${NAMESPACE}:users "/home/jovyan"
-fi
+chown -R ${NB_USER}:users "/home/jovyan"
 
 echo "Done."
