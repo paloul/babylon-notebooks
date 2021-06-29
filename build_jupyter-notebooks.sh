@@ -1,11 +1,11 @@
 cd ./base
-docker build -t ai.beyond/babylon/notebooks/base . --no-cache
+docker build -t ai.beyond/babylon/notebooks/base . 
 
 cd ../jupyter
-docker build -t ai.beyond/babylon/notebooks/jupyter-base . --no-cache
+docker build -t ai.beyond/babylon/notebooks/jupyter-base . 
 
 cd ../jupyter-scipy
-docker build -t ai.beyond/babylon/notebooks/jupyter-scipy . --no-cache
+docker build -t ai.beyond/babylon/notebooks/jupyter-scipy . 
 
 cd ..
 docker tag ai.beyond/babylon/notebooks/base:latest 562046374233.dkr.ecr.us-west-2.amazonaws.com/ai.beyond/babylon/notebooks/base:latest
