@@ -8,8 +8,7 @@ ENV HOME /home/$NB_USER
 ENV SHELL /bin/bash
 
 # BL environment variables
-ENV NAMESPACE kubeflow
-ENV NOTEBOOK_NAME kubeflow-1
+ENV NB_NAME kubeflow-1
 
 # args - software versions
 ARG KUBECTL_ARCH="amd64"
@@ -36,6 +35,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     locales \
     lsb-release \
     nano \
+    openssh-client \
     software-properties-common \
     sudo \
     tzdata \
