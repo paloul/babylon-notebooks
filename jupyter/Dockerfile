@@ -67,6 +67,7 @@ COPY --chown=jovyan:users s6/ /etc
 
 # Give permissions for read/write/execute to all in group
 RUN chmod -R g+rwx ${CONDA_DIR} \
+   && chmod -R g+rwx /usr/local \
    && chmod -R g+rwx ${HOME}
 
 EXPOSE 8888
