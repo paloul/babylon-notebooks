@@ -37,6 +37,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     lsb-release \
     nano \
     software-properties-common \
+    sudo \
     tzdata \
     unzip \
     vim \
@@ -44,6 +45,9 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     zip \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+
+# copy over sudoers
+COPY sudoers /etc/
 
 # install - s6 overlay
 RUN export GNUPGHOME=/tmp/ \
