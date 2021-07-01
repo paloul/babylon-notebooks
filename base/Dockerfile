@@ -37,7 +37,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     nano \
     openssh-client \
     software-properties-common \
-    sudo \
     tzdata \
     unzip \
     vim \
@@ -46,8 +45,10 @@ RUN export DEBIAN_FRONTEND=noninteractive \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
-# copy over sudoers
-COPY sudoers /etc/
+# copy over sudoers, this file allows those
+# in the sudo group to not use their password
+# to execute sudo commands. # Disabled by paloul 7/1/2021
+# COPY sudoers /etc/
 
 # install - s6 overlay
 RUN export GNUPGHOME=/tmp/ \
